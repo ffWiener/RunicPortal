@@ -1,6 +1,6 @@
 # RunicPortal
 
-#### Warning - This can/will allow you to warp to portals that you have not unlocked.  Please use at your own risk and do not blame me if you get banned.  This add-on is meant to remove the menu-lag interaction and add macro-ability to runic portal usage in a similar fashion to HomePoint addon.  Much like this warning text.
+#### Warning - This will likely allow you to warp to portals that you have not unlocked and possibly allows you to use runic portals without spending Imperial Standing if you are not Captain rank (I am unable to test).  Please use at your own risk and do not blame me if you get banned.  This add-on is meant to remove the menu-lag interaction and add macro-ability to runic portal usage in a similar fashion to HomePoint addon.  Much like this warning text.
 
 #### Note: if this code is used in any fashion as a part of any other addon, please give credit.  :)
 
