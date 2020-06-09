@@ -30,7 +30,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _addon.name = 'RunicPortal'
 _addon.author = 'Wiener'
-_addon.version = '0.1.0'
+_addon.version = '1.0.0'
 _addon.command = 'rp'
 
 require('tables')
@@ -96,8 +96,6 @@ windower.register_event('addon command', function(...)
     local args = T{...}
     local cmd = args[1]
 
-    print(args[0], args[1], args[2])
-
     if cmd == "reset" then
         ResetDialogue()
     else
@@ -106,7 +104,6 @@ windower.register_event('addon command', function(...)
             _packet = FindRunicPortal(info.zone)
             if _packet then
                 if SetPacketMenuId(info.zone, cmd) then
-                    windower.add_to_chat(10, "engaging dialogue")
                     _warping = true
                     _lastPacket = _packet
                     EngageDialogue(_packet['Target'], _packet['Target Index'])
@@ -216,7 +213,6 @@ end
 function SetPacketMenuId(zoneId, cmd, target)
     _destination = nil
     local target = _packet['Target']
-    windower.add_to_chat(10, "got valid target: " .. target)
     if target ~= nil then
         if zoneId == 50 then
             _doubleReply = false
@@ -229,7 +225,6 @@ function SetPacketMenuId(zoneId, cmd, target)
                 else
                     local oi = shortcuts[cmd]
                     if oi ~= nil then
-                        windower.add_to_chat(10, "shortcut found: " .. cmd)
                         _destination = oi
                         _packet['Menu ID'] = _portals[target].menuId
                         return true
@@ -249,13 +244,12 @@ function SetPacketMenuId(zoneId, cmd, target)
                 end
             end
         else
-            windower.add_to_chat(10, "regular warp: " .. tostring(zoneId))
             _doubleReply = true
             _packet['Menu ID'] = _portals[target].menuId
             return true
         end
     else
-        windower.add_to_chat(10, "not going to warp")
+        windower.add_to_chat(10, "Target portal not loaded into packet.")
         return false
     end
 end
