@@ -30,7 +30,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 _addon.name = 'RunicPortal'
 _addon.author = 'Wiener'
-_addon.version = '1.0.0'
+_addon.version = '1.0.1'
 _addon.command = 'rp'
 
 require('tables')
@@ -64,20 +64,24 @@ local assaultOrders = {
 }
 
 local shortcuts = {
+    ["a"] = 1,
     ["ai"] = 1,
     ["azouph"] = 1,
     ["ls"] = 1,
     ["leujaoam"] = 1,
+    ["d"] = 2,
     ["di"] = 2,
     ["dvucca"] = 2,
     ["p"] = 2,
     ["periqia"] = 2,
+    ["m"] = 3,
     ["mj"] = 3,
     ["mamool"] = 3,
     ["h"] = 4,
     ["halvung"] = 4,
     ["lc"] = 4,
     ["lebros"] = 4,
+    ["i"] = 5,
     ["ia"] = 5,
     ["ilrusi"] = 5,
     ["n"] = 6,
@@ -236,7 +240,6 @@ function SetPacketMenuId(zoneId, cmd, target)
             else -- we have assault orders
                 if cmd == nil then
                     _packet['Menu ID'] = assaultOrder.menuId
-                    windower.add_to_chat(10, "assault orders and nil command, using menuId: " .. tostring(assaultOrder.menuId))
                     return true
                 else
                     windower.add_to_chat(10, "Runic portal destination issued with assault orders!  Use //rp to warp to zone.")
